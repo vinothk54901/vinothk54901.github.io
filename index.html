@@ -30,6 +30,7 @@
 						<li><a href="#four">Projects</a></li>
 						<li><a href="#five">Certificates</a></li>
 						<li><a href="#six">Connect With Me</a></li>
+                        <li><a href="#eight">Work Recommendations</a></li>
 						<li><a href="#seven" onclick="RedirectToResume();">Resume <i class="fas fa-external-link-alt"></i></a></li>
 					</ul>
 				</nav>
@@ -124,6 +125,14 @@
 								</div>
 							</section>
 
+
+                            <section id="eight">
+                                <div class="container">
+                                    <h3>Image Gallery</h3>
+                                    <div id="image-gallery"></div>
+                                </div>
+                                </section>    
+
 						<!-- Seven -->
 							<section id="seven">
 								<div class="container">
@@ -135,6 +144,8 @@
 									</ul>
 								</div>
 							</section>
+
+
 
 					</div>
 
@@ -161,6 +172,16 @@
 			function RedirectToResume(){
 				window.open("./pdf/VINOTH_KARUNAKARAN_Resume.pdf", '_blank').focus();
 			}
+            const imageCount = 5; // change this to the number of images you have
+            const galleryDiv = document.getElementById("image-gallery");
+
+            for (let i = 1; i <= imageCount; i++) {
+                const img = document.createElement("img");
+                img.src = `./Recommendations/Recommendation${i}.jpg`;
+                img.alt = `Image ${i}`;
+                img.style = "max-width: 200px; margin: 10px;";
+                galleryDiv.appendChild(img);
+  }
 			</script>
 
 	</body>
