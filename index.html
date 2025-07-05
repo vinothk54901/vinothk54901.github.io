@@ -66,6 +66,7 @@
 						<li><a href="#five">Certificates</a></li>
 						<li><a href="#six">Connect With Me</a></li>
                         <li><a href="#eight">Work Recommendations</a></li>
+                        <li><a href="#nine">Awards</a></li>
 						<li><a href="#seven" onclick="RedirectToResume();">Resume <i class="fas fa-external-link-alt"></i></a></li>
 					</ul>
 				</nav>
@@ -207,7 +208,15 @@
                                     </div>
                                 </div>
                             </section>
-
+                        <!-- eight -->
+                            <section id="nine">
+                                <div class="container">
+                                    <h3>Awards</h3>
+                                    <div class="carousel">
+                                        <img id="carousel-image-award" src="./Awards/Award1.png" alt="Award 1" />
+                                    </div>
+                                </div>
+                            </section>
 
                             <!-- <section id="eight">
                                 <div class="container">
@@ -278,6 +287,28 @@
             }
 
             setInterval(showNextImage, 3000); // Change image every 3 seconds
+const awardimagePaths = [
+    "./Awards/Award1.png",
+    "./Awards/Award3.jpg",
+    "./Awards/Award2.png",
+  ];
+
+            let awardCurrentIndex = 0;
+            const awardCarouselImage = document.getElementById("carousel-image-award");
+
+            function showNextAward() {
+                awardCurrentIndex = (awardCurrentIndex + 1) % awardimagePaths.length;
+                awardCarouselImage.style.opacity = 0;
+                setTimeout(() => {
+                awardCarouselImage.src = awardimagePaths[awardCurrentIndex];
+                awardCarouselImage.alt = `Award ${awardCurrentIndex + 1}`;
+                awardCarouselImage.style.opacity = 1;
+                }, 300);
+            }
+
+            setInterval(showNextAward, 3000);
+
+
 			</script>
 
 	</body>
