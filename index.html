@@ -11,6 +11,20 @@
 			{
 				list-style: "\2192";
 			}
+
+            .carousel 
+            {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .carousel img 
+            {
+                max-width: 80%;
+                height: auto;
+                border-radius: 10px;
+                transition: opacity 0.5s ease-in-out;
+            }
 			</style>
 	</head>
 	<body class="is-preload">
@@ -124,14 +138,23 @@
 									</div>
 								</div>
 							</section>
-
-
+                        <!-- eight -->
                             <section id="eight">
+                                <div class="container">
+                                    <h3>LinkedIn Recommendations</h3>
+                                    <div class="carousel">
+                                        <img id="carousel-image" src="./Recommendations/Recommendation1.png" alt="Recommendation 1" />
+                                    </div>
+                                </div>
+                            </section>
+
+
+                            <!-- <section id="eight">
                                 <div class="container">
                                     <h3>Linkedin Recommendations</h3>
                                     <div id="image-gallery"></div>
                                 </div>
-                                </section>    
+                                </section>     -->
 
 						<!-- Seven -->
 							<section id="seven">
@@ -172,16 +195,29 @@
 			function RedirectToResume(){
 				window.open("./pdf/VINOTH_KARUNAKARAN_Resume.pdf", '_blank').focus();
 			}
-            const imageCount = 5; // change this to the number of images you have
-            const galleryDiv = document.getElementById("image-gallery");
 
-            for (let i = 1; i <= imageCount; i++) {
-                const img = document.createElement("img");
-                img.src = `./Recommendations/Recommendation${i}.png`;
-                img.alt = `Image ${i}`;
-                img.style = "max-width: 200px; margin: 10px;";
-                galleryDiv.appendChild(img);
-  }
+            const imagePaths = [
+    "./Recommendations/Recommendation1.png",
+    "./Recommendations/Recommendation2.png",
+    "./Recommendations/Recommendation3.png",
+    "./Recommendations/Recommendation4.png",
+    "./Recommendations/Recommendation5.png"
+  ];
+
+            let currentIndex = 0;
+            const carouselImage = document.getElementById("carousel-image");
+
+            function showNextImage() {
+                currentIndex = (currentIndex + 1) % imagePaths.length;
+                carouselImage.style.opacity = 0;
+                setTimeout(() => {
+                carouselImage.src = imagePaths[currentIndex];
+                carouselImage.alt = `Recommendation ${currentIndex + 1}`;
+                carouselImage.style.opacity = 1;
+                }, 300);
+            }
+
+            setInterval(showNextImage, 3000); // Change image every 3 seconds
 			</script>
 
 	</body>
