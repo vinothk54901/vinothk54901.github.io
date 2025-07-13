@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+:root {
+    /* Light theme portfolio colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Primary: Beautiful royal blue gradient colors */
+    --primary: 225 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 225 100% 65%;
+
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 225 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Portfolio-specific design tokens for light theme */
+    --gradient-primary: linear-gradient(135deg, hsl(225 85% 55%), hsl(225 100% 65%));
+    --gradient-light: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    
+    /* Shadows with primary color glow for light theme */
+    --shadow-elegant: 0 10px 30px -10px hsl(225 85% 55% / 0.15);
+    --shadow-glow: 0 0 40px hsl(225 100% 65% / 0.1);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 225 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 225 85% 55%;
+  }
+
+.dark {
+    /* Dark theme if needed */
+    --background: 225 25% 6%;
+    --foreground: 210 40% 98%;
+    --card: 227 27% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 227 27% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 225 85% 55%;
+    --primary-foreground: 225 25% 6%;
+    --primary-glow: 225 100% 65%;
+    --secondary: 227 27% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 227 27% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 225 85% 55%;
+    --accent-foreground: 225 25% 6%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 227 27% 15%;
+    --input: 227 27% 15%;
+    --ring: 225 85% 55%;
+    --sidebar-background: 227 27% 9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 225 85% 55%;
+    --sidebar-primary-foreground: 225 25% 6%;
+    --sidebar-accent: 227 27% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 227 27% 15%;
+    --sidebar-ring: 225 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--gradient-light);
+  }
+
+  /* Portfolio-specific animations and utilities */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+  }
+
+  .card-elegant {
+    @apply bg-gradient-to-br from-card to-secondary border border-border/50 backdrop-blur-sm;
+    box-shadow: var(--shadow-elegant);
+    transition: var(--transition-smooth);
+  }
+
+  .card-elegant:hover {
+    @apply border-primary/30;
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-4px);
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-medium;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-primary:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .skill-bar {
+    @apply h-2 bg-muted rounded-full overflow-hidden;
+  }
+
+  .skill-progress {
+    @apply h-full bg-gradient-to-r from-primary to-primary-glow rounded-full;
+    transition: width 1s ease-in-out;
+  }
+}
